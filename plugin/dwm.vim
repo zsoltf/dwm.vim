@@ -70,7 +70,7 @@ function! DWM_New()
   " Move current master pane to the stack
   call DWM_Stack(1)
   " Create a vertical split
-  vert topleft new
+  vsplit
   call DWM_ResizeMasterPaneWidth()
 endfunction
 
@@ -110,12 +110,6 @@ function! DWM_AutoEnter()
     return
   endif
 
-  " Move new window to stack top
-  wincmd K
-
-  " Focus new window (twice :)
-  call DWM_Focus()
-  call DWM_Focus()
 endfunction
 
 " Close the current window
@@ -205,10 +199,10 @@ if g:dwm_map_keys
   endif
 
   if !hasmapto('<Plug>DWMNew')
-      nmap <C-N> <Plug>DWMNew
+      nmap <C-M> <Plug>DWMNew
   endif
   if !hasmapto('<Plug>DWMClose')
-      nmap <C-C> <Plug>DWMClose
+      nmap <C-Q> <Plug>DWMClose
   endif
   if !hasmapto('<Plug>DWMFocus')
       nmap <C-@> <Plug>DWMFocus
